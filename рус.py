@@ -71,6 +71,7 @@ async def init_db():
         await db.commit()
 
 # ---------- Команды ----------
+dp = Dispatcher()
 @dp.message(Command(commands=["рулетка", "игра", "начать"]))
 async def start_game(msg: Message):
     if msg.chat.type not in {"group", "supergroup"}:
