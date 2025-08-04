@@ -9,8 +9,13 @@ from aiogram.filters import Command
 
 API_TOKEN = "8499852940:AAGlJ2Txa4rNkZ_3R2bgoPjfVZqA8BR8iYU"  # ← Замени на свой токен
 
-bot = Bot(token=API_TOKEN, parse_mode=ParseMode.HTML)
-dp = Dispatcher()
+from aiogram.client.default import DefaultBotProperties  # ДОБАВИТЬ импорт
+
+bot = Bot(
+    token=API_TOKEN,
+    default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+)
+
 
 games = {}  # {chat_id: {...}}
 last_bot_messages = {}  # chat_id -> message_id
